@@ -1,0 +1,36 @@
+<head>
+  <title>TicTacAwesome</title>
+</head>
+
+<body>
+  <h1>TicTacAwesome!</h1>
+
+  {{#if getWinner}}
+    <strong>{{ getWinner }} won!</strong> <button id='playAgain'>Play again?</button>
+  {{/if}}
+  <br><br>
+  {{#if isPlayer}}
+    <svg id="board" width="640" height="640" xmlns="http://www.w3.org/2000/svg">
+      <!-- Board lines -->
+      {{#each boardLines}}
+        <line x1="{{x1}}" y1="{{y1}}" x2="{{x2}}" y2="{{y2}}"
+            stroke-width="5" stroke="#000000"/>
+      {{/each}}
+      {{#each xMoves}}
+        <line x1="{{xTopLeft}}" y1="{{yTopLeft}}"
+              x2="{{xBottomRight}}" y2="{{yBottomRight}}"
+              stroke-width="5" stroke="#000000"/>
+        <line x1="{{xTopRight}}" y1="{{yTopRight}}"
+              x2="{{xBottomLeft}}" y2="{{yBottomLeft}}"
+              stroke-width="5" stroke="#000000"/>
+      {{/each}}
+      {{#each oMoves}}
+        <circle cx="{{cx}}" cy="{{cy}}" r="{{r}}"
+            stroke-width="5" stroke="#000000" fill="none"/>
+      {{/each}}
+    </svg>
+  {{else}}
+    Play Tic Tac Toe. Pick a side, <a href="/player1">Xs</a> or
+    <a href="/player2">Os</a>.
+  {{/if}}
+</body>

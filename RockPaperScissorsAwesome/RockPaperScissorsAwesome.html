@@ -1,0 +1,25 @@
+<head>
+  <title>RockPaperScissorsAwesome</title>
+</head>
+
+<body>
+  <h1>Rock, Paper, Scissors, Awesome!</h1>
+  {{#if winner}}
+    <strong>{{ winnerText }}</strong>
+    <button id='playAgain'>Play again?</button>
+  {{else}}
+    {{#if player}}
+      {{#if chosenWeapon}}
+        You chose {{ chosenWeapon }}. Waiting for opponent.
+      {{else}}
+        Pick your weapon:<br>
+        <button id="rock" class="weaponButton">Rock</button>,
+        <button id="paper" class="weaponButton">Paper</button>, or
+        <button id="scissors" class="weaponButton">Scissors</button>
+       {{/if}}
+    {{else}}
+      Play Rock, Paper, Scissors. Pick a side, <a href="/player1">player 1</a> or
+      <a href="/player2">player 2</a>.
+    {{/if}}
+  {{/if}}
+</body>
